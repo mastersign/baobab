@@ -1,0 +1,1 @@
+This directory conatins scripts for managing and building Baobab.

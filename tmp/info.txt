@@ -1,0 +1,1 @@
+This directory is used during the build process of Baobab.
