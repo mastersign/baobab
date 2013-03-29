@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Tools>
+	<!-- portable tools in EntityManagement -->
+	<Tool name="7zip">7zip\7za.exe</Tool>
+	<Tool name="curl">curl\curl.exe</Tool>
+	<Tool name="ILMerge">ILMerge\ILMerge.exe</Tool>
+	<Tool name="mkisofs">mkisofs\mkisofs.exe</Tool>
+</Tools>
