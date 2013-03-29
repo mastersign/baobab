@@ -16,7 +16,7 @@
 #=============================================================================
 
 param (
-	[string]$description = "Wählen Sie ein Verzeichnis.",
+	[string]$description = "Choose a folder.",
 	$rootDir = [Environment+SpecialFolder]::Desktop
 )
 
