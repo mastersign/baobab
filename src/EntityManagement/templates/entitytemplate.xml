@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Template>
+  <AspectLibrary>
+  </AspectLibrary>
+  <Structure>
+    <Description>
+      An Entity.
+    </Description>
+    <Dir name=".entity" hidden="true">
+      <Description>
+        Contains metadata for the entity.
+      </Description>
+      <File name="entity.xml" template="entity" allowOverride="true">
+        <Description>
+          Description file for the entity.
+        </Description>
+        <Aspect>default</Aspect>
+      </File>
+      <Dir name="scripts" actionDir="true">
+        <Description>
+          This directory contains local scripts for managing the entity 
+          and wrapper for entity actions.
+        </Description>
+        <Aspect>default</Aspect>
+      </Dir>
+      <Aspect>default</Aspect>
+    </Dir>
+    <Dir name="test" />
+  </Structure>
+  <Actions iconDir="icons">
+    <Action name="Open-Shell" icon="Open-Shell.ico">
+      <Aspect>default</Aspect>
+    </Action>
+    <Action name="Add-Aspect" icon="Add-Aspect.ico">
+      <Aspect>default</Aspect>
+    </Action>
+    <Action name="Repair-Entity" icon="Repair-Entity.ico">
+      <Aspect>default</Aspect>
+    </Action>
+    <Action name="Pack-Entity" icon="Pack-Entity.ico">
+      <Aspect>default</Aspect>
+    </Action>
+    <Action name="Get-Help" icon="Get-Help.ico">
+      <Aspect>default</Aspect>
+    </Action>
+  </Actions>
+</Template>
