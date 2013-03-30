@@ -18,8 +18,8 @@
 
 param (
     [string]$structureTemplatePath,
-	$aspectNames = @(),
-	$processProperties = @{}
+    $aspectNames = @(),
+    $processProperties = @{}
 )
 
 Write-Verbose "+++ ParseTemplate.ps1"
@@ -33,10 +33,10 @@ if (-not $(Test-Path $structureTemplatePath))
 
 $r = @{}
 
-[xml]$r.Template = $(Get-Content $structureTemplatePath)
+[xml]$r.Template = Get-Content $structureTemplatePath
 
 $r.Aspects = & "$scriptRoot\Resolve-Aspects.ps1" `
-    -aspectLibrary $r.Template.Template.AspectLibrary `
+    -aspectLibrary $r.Template.SelectSingleNode("/Template/AspectLibrary") `
     -aspectNames $aspectNames `
     -processProperties $processProperties
 

@@ -28,9 +28,9 @@ param (
 #          The DOM of the profile entity tempalte is extended by missing elements
 
 # select aspect library from the profile entity template
-$profileAspectLib = $profileDoc.Template.AspectLibrary
+$profileAspectLib = $profileDoc.SelectSingleNode("/Template/AspectLibrary")
 # select aspects of the base entity template
-$baseAspects = $baseDoc.Template.AspectLibrary.Aspect
+$baseAspects = $baseDoc.SelectNodes("/Template/AspectLibrary/Aspect")
 
 if (-not $profileAspectLib)
 {
@@ -59,9 +59,9 @@ elseif ($baseAspects)
 ### sync the file systemstructure
 
 # select file system structure of the profile entity template
-$profileStructure = $profileDoc.Template.Structure
+$profileStructure = $profileDoc.SelectSingleNode("/Template/Structure")
 # select file system structure of the base entity template
-$baseStructure = $baseDoc.Template.Structure
+$baseStructure = $baseDoc.SelectSingleNode("/Template/Structure")
 
 # check preconditions
 if (-not $profileStructure)
@@ -130,9 +130,9 @@ MergeDirectories $profileStructure $baseStructure
 ### sync actions
 
 # select action library of the profile entity template
-$profileActionLib = $profileDoc.Template.Actions
+$profileActionLib = $profileDoc.SelectSingleNode("/Template/Actions")
 # select action library of the base entity template
-$baseActions = $baseDoc.Template.Actions.Action
+$baseActions = $baseDoc.SelectNodes("/Template/Actions/Action")
 
 if (-not $profileActionLib)
 {

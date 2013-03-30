@@ -15,19 +15,18 @@
 # Parameters: 
 #   - profilName: 
 #       The name of the profile to build
-#       Default value: 'Bare'
+#       Default value: 'bare'
 #   - buildRunner:
 #       (optional) 1 if the runner shall be compiled; otherwise 0.
 #       If the parameter is not specified, a user prompt is shown.
 # Dependencies: 
 #   Prepare-Dir.ps1
 #   Prepare-EmptyDir.ps1
-#   Update-ACS.ps1
 #   Merge-Templates.ps1
 #   New-EntityManagementFile.ps
 #   Run-MsBuild.ps1
 #   Build-Runner.ps1
-#   $scriptRoot\Export-SvnDirectory.ps1 
+#   Copy-VersionedDirectory.ps1 
 # Remarks: 
 #   Every profile is defined in a directory called 
 #   src\EntityManagement.<profile name>
@@ -47,7 +46,7 @@
 #          - <template name 2>.template.ps1
 #=============================================================================
 param (
-	[string]$profileName = "project",
+	[string]$profileName = "bare",
 	$buildRunner = "MessageBox"
 )
 
@@ -57,7 +56,6 @@ $src = Resolve-Path "$myDir\..\src"
 $entityMgm = "$src\EntityManagement"
 $entityScriptRoot = "$entityMgm\scripts"
 $profileMgm = "$src\EntityManagement.$profileName"
-$profileScriptRoot = "$profileMgm\scripts"
 
 $withRunner = $true
 if ($buildRunner -eq "MessageBox") {
@@ -66,7 +64,7 @@ if ($buildRunner -eq "MessageBox") {
 
 	# Prompt the user if the runner shall be compiled
 	$withRunner = "Yes" -eq [Windows.Forms.MessageBox]::Show( `
-		"Comile the runners?", `
+		"Compile the runners?", `
 		"Build-Project", "YesNo", "Question")
 } elseif (-not $buildRunner) {
 	$withRunner = $false
@@ -81,22 +79,19 @@ $out = & "$myDir\Prepare-EmptyDir.ps1" `
 # set default reaction on errors to abort
 $ErrorActionPreference = "Stop"
 
-# build and update Mastersign.AppShell if possible
-& "$myDir\Update-ACS.ps1"
-
 # copy command line tools
-& "$profileScriptRoot\Export-SvnDirectory.ps1" `
+& "$myDir\Copy-VersionedDirectory.ps1" `
 	-source "$myDir\..\lib\tools" `
 	-target "$out\tools"
 
 # copy EntityManagement base
-& "$profileScriptRoot\Export-SvnDirectory.ps1" `
+& "$myDir\Copy-VersionedDirectory.ps1" `
 	-source "$src\EntityManagement" `
 	-target "$out"
 
 # copy EntityManagement profile
 # Remark: allready existing files from the base are overwritten
-& "$profileScriptRoot\Export-SvnDirectory.ps1" `
+& "$myDir\Copy-VersionedDirectory.ps1" `
 	-source "$src\EntityManagement.$profileName" `
 	-target "$out"
 

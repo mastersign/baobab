@@ -44,20 +44,22 @@ $parsingResult = & "$scriptRoot\Parse-Template.ps1" `
 $template = $parsingResult.Template
 $aspectNames = $parsingResult.AspectNames
 
-$actions = $template.Template.Actions
+$actions = $template.SelectSingleNode("/Template/Actions")
 if (-not $actions)
 {
 	return
 }
 
-foreach ($actionTag in $actions.SelectNodes("Action"))
-{
-	if (& "$scriptRoot\Check-Aspect.ps1" $actionTag $aspectNames)
-	{
-		& "$scriptRoot\Add-Action.ps1" `
-			-entityRoot $entityRoot `
-			-actionName $actionTag.name
-	}
-}
+#if ($actions -is [System.Xml.XmlElement]) {
+  foreach ($actionTag in $actions.SelectNodes("Action"))
+  {
+    if (& "$scriptRoot\Check-Aspect.ps1" $actionTag $aspectNames)
+    {
+      & "$scriptRoot\Add-Action.ps1" `
+        -entityRoot $entityRoot `
+        -actionName $actionTag.name
+    }
+  }
+#}
 
 Write-Verbose "--- New-EntityStructure.ps1"

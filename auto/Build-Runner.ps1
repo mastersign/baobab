@@ -51,7 +51,7 @@ $tmp = & "$myDir\Prepare-Dir.ps1" "$baobab\tmp"
 ### prepare runner project
 $tempName = [IO.Path]::GetRandomFileName()
 $runnerProjectDir = & "$myDir\Prepare-EmptyDir.ps1" "$tmp\$tempName"
-& "$projectScriptRoot\Export-SvnDirectory.ps1" $runnerTemplateProjectDir $runnerProjectDir
+& "$myDir\Copy-VersionedDirectory.ps1" $runnerTemplateProjectDir $runnerProjectDir
 
 ### adapt runner template
 
