@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Template>
+  <AspectLibrary>
+  </AspectLibrary>
+  <Structure icon="Bare.ico" iconSource="icons">
+    <Description>
+      A bare entity.
+    </Description>
+    <File name="info.txt" template="info">
+      <Description>An info file for the bare entity.</Description>
+      <Aspect>default</Aspect>
+    </File>
+  </Structure>
+  <Actions iconDir="icons">
+  </Actions>
+</Template>
