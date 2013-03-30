@@ -1,0 +1,59 @@
+#=============================================================================
+# Project: Baobab
+# Author: ##EDIT##
+# Name: Check-##EDIT##.ps1
+# Description: 
+#   Checks wheter an aspect can be applied to an entity or not.
+#   Returns "OK" if the aspect can be applied, "ERROR" if the aspect
+#   can not be applied, and "CANCEL" if the user canceled the application
+#   of the aspect with any kind of user interaction.
+# Parameters: 
+#   - entityRoot: 
+#       The root directory of the entity
+#   - aspectName: 
+#       The name of the aspect to check
+#   - showMessage: 
+#       $true if a message box shall be displayed in case the aspect can not
+#       be applied. The message box must describe why the application of the
+#       aspect failed.
+#       $false if no message box shall be displayed.
+#       Default value: $true
+#   - processProperties:
+#       A hash table with additional information about the creation process
+#       Default value: An empty hash table
+# Remarks:
+#       The file name of this aspect hook must be 'Check-<aspect name>.ps1'
+#=============================================================================
+
+param (
+	[string]$entityRoot,
+	[string]$aspectName,
+	[bool]$showMessage = $true,
+	$processProperties = @{}
+)
+
+Write-Verbose "+++ $([IO.Path]::GetFileName($MyInvocation.MyCommand.Definition)) (aspect check)"
+
+$result = "OK"
+$message = $null
+
+### implement checking routine here ###
+
+#######################################
+
+if (-not $result -and $showMessage)
+{
+	[Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms") | Out-Null
+	
+	$dlgResult = [Windows.Forms.MessageBox]::Show("Aspekt '$aspectName' überprüfen...", `
+		"Der Aspekt '$aspectName' kann nicht angewendet werden.`n`n$message`n`nEs wird versucht die Entity ohne diesen Aspekt zu bauen.", `
+		 "OkCancel", "Warning")
+	if ($dlgResult -eq "Cancel")
+	{
+		Write-Verbose "--- $([IO.Path]::GetFileName($MyInvocation.MyCommand.Definition)) (aspect check)"
+		return "CANCEL"
+	}
+}
+
+Write-Verbose "--- $([IO.Path]::GetFileName($MyInvocation.MyCommand.Definition)) (aspect check)"
+return $result

@@ -1,0 +1,35 @@
+#=============================================================================
+# Project: Baobab
+# Author: ##EDIT##
+# Name: On-##EDIT##.ps1
+# Description: 
+#   Is run after an aspect is applied to an entity.
+# Parameters: 
+#   - entityRoot: 
+        The root directory of the entity
+#   - aspectName:
+#       The name of the aspect
+#   - firstApplication:
+#       $true if the aspect is applied to the entity for the first time;
+#       othwise $false
+#   - processProperties:
+#       A hash table with additional information about the creation process
+#       Default value: An empty hash table
+# Remarks:
+#       The file name of this aspect hook must be 'On-<aspect name>.ps1'
+#=============================================================================
+
+param (
+	[string]$entityRoot,
+	[string]$aspectName,
+	[bool]$firstApplication,
+	$processProperties = @{}
+)
+
+Write-Verbose "+++ $([IO.Path]::GetFileName($MyInvocation.MyCommand.Definition)) (aspect trigger)"
+
+### implement post aspect routine here ###
+
+##########################################
+
+Write-Verbose "--- $([IO.Path]::GetFileName($MyInvocation.MyCommand.Definition)) (aspect trigger)"
