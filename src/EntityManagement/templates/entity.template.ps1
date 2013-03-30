@@ -62,7 +62,7 @@ if (Test-Path $targetPath)
 	
 	# update SVN ignore paths
 	$svnProps = $entity.SelectSingleNode("SvnProperties")
-	foreach ($iP in $processProperties.SvnIgnorePaths)
+	foreach ($iP in $processProperties.VersionIgnorePaths)
 	{
 		if (-not $svnProps.SelectSingleNode("Ignore[@path='$iP']"))
 		{
@@ -108,7 +108,7 @@ else
 		}
 		$w.WriteEndElement()
 		$w.WriteStartElement("SvnProperties")
-		foreach ($iP in $processProperties.SvnIgnorePaths)
+		foreach ($iP in $processProperties.VersionIgnorePaths)
 		{
 			$w.WriteStartElement("Ignore")
 			$w.WriteAttributeString("path", $iP)
