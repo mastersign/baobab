@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Profile>
+  <Name>bare</Name>
+  <Description>
+	This entity profile is a minimum profile without any aspects.
+  </Description>
+</Profile>
