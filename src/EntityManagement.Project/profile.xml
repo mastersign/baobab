@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Profile>
+  <Name>project</Name>
+  <Description>
+  	The project profile supports managing project files in a consistent way.
+  	
+  	For certain project categories, like software or web development, it includes
+  	special folders and automation scripts to support the work on the project.
+  </Description>
+</Profile>
