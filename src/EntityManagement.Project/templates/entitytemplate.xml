@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Template>
+
+  <AspectLibrary>
+    <Aspect name="resource" />
+    <Aspect name="release" />
+    <Aspect name="documentation" />
+    <Aspect name="automation" />
+    <Aspect name="backup" />
+    <Aspect name="programming" />
+    <Aspect name="website" />
+    <Aspect name="prototyping" />
+    <Aspect name="temporary" />
+  </AspectLibrary>
+
+  <Structure icon="project.ico" iconSource="icons">
+    <Description>
+      The root directory of the project. 
+      A project is a collection of files, representing the work on a task.
+      A project is identified by a code name.
+    </Description>
+    
+    <!-- Extending the .entity directory by an icon store -->
+    <Dir name=".entity" icon="entity.ico" hidden="true">
+      <Description>
+        Contains metadata about the project.
+      </Description>
+      <Dir name="icons" iconStore="true">
+        <Description>
+          Contains the icons of the folders.
+        </Description>
+      </Dir>
+      <Aspect>default</Aspect>
+    </Dir>
+    
+    <!-- project specific folders -->
+
+    <Dir name="res" icon="resources.ico">
+      <Description>
+        The resource folder contains files, which are used to work on the task,
+        but are not changed during that work. They come from outside the project. 
+        
+        E.g. a PDF file with informations, needed in the project,
+        or a photo collection used to layout a brochure.
+      </Description>
+      <Aspect>resource</Aspect>
+    </Dir>
+    
+    <Dir name="src" icon="source.ico">
+      <Description>
+        Contains all files, chenaged by the user during the work on the task.
+        The source files are used to produce the project output. They are
+        usally not used as the output.
+
+        E.g. A Microsoft Word file can be a source file, which is later used to produce
+        a project output in the shape of a PDF file.
+      </Description>
+      <Aspect>default</Aspect>
+    </Dir>
+
+    <Dir name="out" icon="output.ico" versionIgnore="true" cleaningAllowed="true">
+      <Description>
+        The Output folder contains the current result of the project.
+        The output can be updated on a regular basis and the files in this folder
+        should represent the most recent results of the work.
+
+        E.g. if the source contains a Microsoft Word document, this folder
+        can contain a PDF file generated from the Word document. Every time
+        a reasonable change is made on the Word document, the PDF file in this
+        folder can be updated.
+      </Description>
+      <Aspect>default</Aspect>
+      <ExcludeAspect>programming</ExcludeAspect>
+      <ExcludeAspect>website</ExcludeAspect>
+    </Dir>
+
+    <Dir name="doc" icon="documentation.ico">
+      <Description>
+        The Documentation folder contains files for planning, structuring and
+        controlling the project. These files are not used to produce the
+        output of the project, but are used to manage the project and to explain
+        the project to externals.
+      </Description>
+      <Aspect>documentation</Aspect>
+    </Dir>
+
+    <Dir name="release" icon="release.ico">
+      <Description>
+        The release folder contains sub folders which names are annotated with date and time.
+        Every sub folder represents the projects output at a certain point of time.
+      </Description>
+      <Aspect>release</Aspect>
+    </Dir>
+
+    <Dir name="lib" icon="libraries.ico">
+      <Description>
+        Contains program libraries, the project depends on.
+        Files in this folder are not changed during the work on the task.
+        They are copied as a resource from outside of the project and can be
+        updated from time to time.
+
+        This folder is equivalent to the Resource folder with the difference, that it contains
+        only program libraries as a resource.
+      </Description>
+      <Aspect>programming</Aspect>
+    </Dir>
+
+    <Dir name="bin" icon="binaries.ico" versionIgnore="true" cleaningAllowed="true">
+      <Description>
+        The Binary folder is the target for builds in a software development project.
+        In projects with the aspect 'programming', it replaces the Output folder.
+      </Description>
+      <Aspect>programming</Aspect>
+    </Dir>
+
+    <Dir name="www" icon="www.ico" versionIgnore="true" cleaningAllowed="true">
+      <Description>
+        The WWW folder is the place to assemlby a website which can be copied to a web server.
+        In projects with the aspect 'website', it replaces the Output folder.
+     </Description>
+      <Aspect>website</Aspect>
+    </Dir>
+
+    <Dir name="backup" icon="backup.ico" versionIgnore="true">
+      <Description>
+        The Backup folder can be used to store certain states of the whole project directory.
+      </Description>
+      <Aspect>backup</Aspect>
+    </Dir>
+
+    <Dir name="auto" icon="auto.ico">
+      <Description>
+        The Automation folder is used to store scripts to automate the project.
+        Usual tasks to automate are updating resources, or building the output.
+      </Description>
+      <Aspect>automation</Aspect>
+    </Dir>
+
+    <Dir name="tmp" icon="temp.ico" versionIgnore="true" cleaningAllowed="true">
+      <Description>
+        The Temporary folder can be used to store intermediate files during automated
+        processes like building a software or assembling a photo collage.
+      </Description>
+      <Aspect>temporary</Aspect>
+    </Dir>
+
+    <Dir name="proto" icon="prototypes.ico">
+      <Description>
+        The Prototyping folder can be used to store sub projects, which purpose is to
+        work on a isolated facet of the task and to produce a demonstrative and partial
+        result for the project.
+      </Description>
+      <Aspect>prototyping</Aspect>
+    </Dir>
+
+  </Structure>
+
+  <Actions iconDir="icons">
+
+    <Action name="Set-DesktopAccess" icon="Set-DesktopAccess.ico">
+      <Aspect>default</Aspect>
+    </Action>
+    <Action name="Backup-Project" icon="Backup-Project.ico">
+      <Aspect>backup</Aspect>
+    </Action>
+    <Action name="New-Release" icon="New-Release.ico">
+      <Aspect>release</Aspect>
+    </Action>
+    <Action name="Publish-Release" icon="Publish-Release.ico">
+      <Aspect>release</Aspect>
+    </Action>
+    <Action name="Publish-Website" icon="Publish-Website.ico">
+      <Aspect>website</Aspect>
+    </Action>
+    <Action name="Build-Documentation" icon="Build-Documentation.ico">
+      <Aspect>programming</Aspect>
+    </Action>
+    <Action name="Open-Project" icon="Open-Project.ico">
+      <Aspect>programming</Aspect>
+    </Action>
+    <Action name="Build-Project" icon="Build-Project.ico">
+      <Aspect>programming</Aspect>
+    </Action>
+    <Action name="Run-Project" icon="Run-Project.ico">
+      <Aspect>programming</Aspect>
+    </Action>
+    <Action name="Clean-Project" icon="Clean-Project.ico">
+      <Aspect>programming</Aspect>
+      <Aspect>website</Aspect>
+      <Aspect>temporary</Aspect>
+    </Action>
+    <Action name="New-Prototype" icon="New-Prototype.ico">
+      <Aspect>prototyping</Aspect>
+    </Action>
+
+  </Actions>
+
+</Template>
