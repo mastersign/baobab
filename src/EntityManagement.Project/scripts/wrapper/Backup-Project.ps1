@@ -30,10 +30,13 @@ $actionName = Get-ActionName($MyInvocation.MyCommand.Definition)
 
 #######----------------------------#######
 
+$targetDir = [IO.Path]::Combine($entityRoot, "backup")
+
 & "$entityActions\$actionName.ps1" `
-    -entityRoot $entityRoot `
-	-zipFormat #`
-	#-versionIgnore
+	-entityRoot $entityRoot `
+	-targetDir $targetDir `
+	-zipFormat `
+	-versionIgnore
 
 ####### insert post action commands here #######
 
