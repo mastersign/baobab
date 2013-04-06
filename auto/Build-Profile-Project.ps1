@@ -1,0 +1,1 @@
+.\Build-Profile.ps1 -profileName Project
