@@ -33,7 +33,6 @@ if (-not (Test-Path $entityRoot))
 $entityRoot = Resolve-Path $entityRoot
 
 $entityName = [IO.Path]::GetFileName($entityRoot)
-$arguments = "/root,`"$entityRoot`""
 $icon = [IO.Path]::Combine($entityRoot, ".entity\icons\project.ico")
 
 # prepare paths for the shortcuts
@@ -60,8 +59,7 @@ function CreateLink ($linkFileName) {
 	$ssh = New-Object net.kiertscher.toolbox.filesystem.ShellShortcut $linkFileName
 	$ssh.Description = "Desktop access for $entityName"
 	$ssh.WorkingDirectory = $entityRoot
-	$ssh.Path = "${env:SystemRoot}\explorer.exe"
-	$ssh.Arguments = $arguments
+	$ssh.Path = $entityRoot
 	$ssh.IconPath = $icon
 	$ssh.IconIndex = "0"
 	$ssh.Save()
