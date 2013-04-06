@@ -41,10 +41,19 @@ $folders = @( `
 	[Environment]::GetFolderPath("Desktop"), `
 	[Environment]::GetFolderPath("MyDocuments"))
 
+# look out for the links folder in the user profile directory
 $userProfileLinks = [IO.Path]::Combine([Environment]::GetFolderPath("UserProfile"), "Links")
-if (Test-Path $userProfileLinks) {
-  $folders += $userProfileLinks
+if (-not (Test-Path $userProfileLinks)) {
+	# try to find the links folder next to the favorites folder in case it was moved
+	# outside the user profile directory
+	$userProfileLinks = [IO.Path]::Combine([IO.Path]::GetDirectoryName([Environment]::GetFolderPath("Favorites")), "Links")
 }
+if (Test-Path $userProfileLinks) {
+	# add the links folder to the list if found
+	$folders += $userProfileLinks
+}
+
+# extend the folders with the name of the shortcut to build the full paths
 $links = $folders | % { [IO.Path]::Combine($_, "$entityName.lnk") }
 
 function CreateLink ($linkFileName) {
