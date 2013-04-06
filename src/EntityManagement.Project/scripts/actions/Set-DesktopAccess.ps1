@@ -4,7 +4,7 @@
 # Name: Set-DesktopAccess.ps1
 # Description:
 #   Activates and deactivates the access to the project via a link/shortcut
-#   on the desktop, in 'My Documents' and in 'Favorites'.
+#   on the desktop, in 'My Documents', and in 'Links'.
 # Parameter: 
 #   - entityRoot: 
 #       Path to the root of the entity
@@ -37,9 +37,15 @@ $arguments = "/root,`"$entityRoot`""
 $icon = [IO.Path]::Combine($entityRoot, ".entity\icons\project.ico")
 
 # prepare paths for the shortcuts
-$links = "Desktop", "MyDocuments", "Favorites" `
-	| % { [Environment]::GetFolderPath($_) `
-	| % { [IO.Path]::Combine($_, "$entityName.lnk")
+$folders = @( `
+	[Environment]::GetFolderPath("Desktop"), `
+	[Environment]::GetFolderPath("MyDocuments"))
+
+$userProfileLinks = [IO.Path]::Combine([Environment]::GetFolderPath("UserProfile"), "Links")
+if (Test-Path $userProfileLinks) {
+  $folders += $userProfileLinks
+}
+$links = $folders | % { [IO.Path]::Combine($_, "$entityName.lnk") }
 
 function CreateLink ($linkFileName) {
 	$ssh = New-Object net.kiertscher.toolbox.filesystem.ShellShortcut $linkFileName
