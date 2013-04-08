@@ -4,7 +4,7 @@
 # Name: Open-Project.ps1
 # Description: 
 #   Runs the open script of the project.
-#   The open script must be '<project root>\scripts\open.ps1'
+#   The open script must be '<project root>\auto\open.ps1'
 # Dependencies: 
 #   EntityToolsLib.ps1
 #=============================================================================

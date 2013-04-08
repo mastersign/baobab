@@ -4,7 +4,7 @@
 # Name: Run-Project.ps1
 # Description: 
 #   Calls the run script of the project.
-#   The run script must be '<project root>\scripts\run.ps1'
+#   The run script must be '<project root>\auto\run.ps1'
 # Dependencies: 
 #   EntityToolsLib.ps1
 #=============================================================================

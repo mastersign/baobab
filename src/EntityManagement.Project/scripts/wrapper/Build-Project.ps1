@@ -4,7 +4,7 @@
 # Name: Build-Project.ps1
 # Description: 
 #   Runs the build script of the project.
-#   The build script must be '<project root>\scripts\build.ps1'
+#   The build script must be '<project root>\auto\build.ps1'
 # Parameter:
 #   - configuration:
 #       The build configuration name e.g. "Debug" or "Release"
