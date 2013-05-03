@@ -115,7 +115,7 @@
 
     <Dir name="www" icon="www.ico" versionIgnore="true" cleaningAllowed="true">
       <Description>
-        The WWW folder is the place to assemlby a website which can be copied to a web server.
+        The WWW folder is the place to assemble a website which can be copied to a web server.
         In projects with the aspect 'website', it replaces the Output folder.
      </Description>
       <Aspect>website</Aspect>
