@@ -1,0 +1,18 @@
+! Baobab
+
+*These pages are currently under construction. The project authors are giving their best to complete the documentation.*
+
+* [Key concepts|concepts]
+** [File system entity|entity]
+** [Common project structure|project structure]
+** [Project aspects|aspects]
+** [Repetitive work steps|actions]
+** [Flexibility and extensibility|extensibility]
+* [Usage scenarios|scenarios]
+** [Setup|setup]
+** [Writing a circular for the family|scenario 1]
+** [Developing software|scenario 2]
+* [Aspect reference|aspect reference]
+* [Action reference|action reference]
+* [Technical details|implementation]
+

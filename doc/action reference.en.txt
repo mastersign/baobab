@@ -1,0 +1,88 @@
+! Action reference
+
+* [Common entity actions|#entity_actions]
+** [Add-Aspect|#add-aspect]
+** [Get-Help|#get-help] *
+** [Open-Shell|#open-shell]
+** [Pack-Entity|#pack-entity]
+** [Repair-Entity|#repair-entity]
+* [Project actions|#project_actions]
+** [Backup-Project|#backup-project]
+** [Build-Documentation|#build-documentation]
+** [Build-Project|#build-project]
+** [Clean-Project|#clean-project]
+** [New-Prototype|#new-prototype]
+** [New-Release|#new-release] {"*"}
+** [Open-Project|#open-project]
+** [Publish-Release|#publish-release] {"*"}
+** [Publish-Website|#publish-website] {"*"}
+** [Run-Project|#run-project]
+** [Set-DesktopAccess|#set-desktopaccess]
+
+{"*"} Incomplete or not implemented yet
+
+!! {anchor:entity_actions}Common entity actions
+
+!!! {anchor:add-aspect}Add-Aspect
+Shows a list with all available aspects for the project and allows the selection of one or more aspects. If a selected aspect is new, then all included folders and actions are installed in the project. 
+
+If a selected aspect was allready applied earlier to the project, then the aspect is recovered. 
+
+Hint: While the recovery of an aspect, only folders and files are restored which do not allready exist. Existing files are not overwritten during a recovery.
+
+!!! {anchor:get-help}Get-Help
+Shows an overview of the projects capabilities in the default browser.
+_(Currently only the project structure template file (XML) is shown.)_
+
+!!! {anchor:open-shell}Open-Shell
+Opens a PowerShell console window with the context of the project. All actions of the project are available directly simply by entering thier names.
+
+!!! {anchor:pack-entity}Pack-Entity
+This action creates a ZIP archive or a self extracting 7zip archive from the whole project and stores it on the desktop. The type of the archive can be selected by a user dialog.
+
+!!! {anchor:repair-entity}Repair-Entity
+Restores the basic structure of a project, and recovers all applied aspects.
+
+Hint: While the recovery of an aspect, only folders and files are restored which do not allready exist. Existing files are not overwritten during a recovery.
+
+!! {anchor:project_actions}Project actions
+
+!!! {anchor:backup-project}Backup-Project
+Creates a ZIP archive of the project, excluding some special folders like _backup_ and _tmp_, and stores it in the backup target folder, which is _backup_ by default.
+
+!!! {anchor:build-documentation}Build-Documentation
+Runs the project documentation build script in the automation folder: _auto\builddoc.ps1_.
+
+!!! {anchor:build-project}Build-Project
+Runs the project build script in the automation folder: _auto\build.ps1_.
+
+!!! {anchor:clean-project}Clean-Project
+Removes all files and subfolders from the following folders, given that they exist:
+* tmp
+* out
+* bin
+
+!!! {anchor:new-prototype}New-Prototype
+Creates a new sub project in the folder _proto_.
+
+!!! {anchor:new-release}New-Release
+Creates a ZIP archive with the content of the default output folder of the project, _out_ or _bin_, and stores it in the _release_ folder. The filename is build from the project name and the current date and time.
+(_Not implemented yet._)
+
+!!! {anchor:open-project}Open-Project
+Runs the open project script in the automation folder: _auto\open.ps1_.
+
+!!! {anchor:publish-release}Publish-Release
+Publishes a release via copy to another folder or uploading to a FTP site.
+(_Not implemented yet._)
+
+!!! {anchor:publish-website}Publish-Website
+Publishes the current content of the website output folder _www_ to a FTP site.
+(_Not implemented yet._)
+
+!!! {anchor:run-project}Run-Project
+Runs the run project script in the automation folder: _auto\run.ps1_.
+
+!!! {anchor:set-desktopaccess}Set-DesktopAccess
+Creates or removes a quick path to the project via a Windows shortcut on the desktop, in the _My Documents_ folder and in the _Links_ folder.
+

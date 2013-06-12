@@ -1,0 +1,19 @@
+! File-system-based entity
+To manage data structures and resources in the file system, the concept of an entity is used. An entity is a folder, annotated with metadata and included resources. An entity folder has the following structure:
+
+* _Entity folder_
+** .entity
+*** entity.xml
+*** _Included resource files_
+** _Entity data_
+
+Hint: On a Windows operating system, the folder _.entity_ should have the hidden attribute. On UNIX-like operating systems, the prefixed period tells the operating system that the folder is hidden.
+
+An entity usally has a specific type, which defines the semantics of the entity. One entity type is _project_ which is the main entity type implemented by baobab.
+
+!! Metadata folder _.entity_
+The hidden _.entity_ folder is the place to store metadata about the entity and additional resources required by the entity. It can contain sub folders for certain kinds of resources.
+
+!! Metadata file _entity.xml_
+The metadata file _entity.xml_ contains at least a GUID, identifying the entity, the entity type, and a name for the entity. Further it contain some specific metadata for the entity type.
+

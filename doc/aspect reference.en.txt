@@ -1,0 +1,77 @@
+! Aspect reference
+* [Automation|#automation]
+* [Backup|#backup]
+* [Documentation|#documentation]
+* [Programming|#programming]
+* [Prototyping|#prototyping]
+* [Release|#release]
+* [Resource|#resource]
+* [Temporary|#temporary]
+* [Website|#website]
+
+!! {anchor:automation}Automation
+The aspect _automation_ adds the automation folder _auto_ to the project.
+!!! Folders and files
+* auto
+
+!! {anchor:backup}Backup
+The aspect _backup_ adds an automated backup mechanism to the project.
+!!! Folders and files
+* backup
+!!! Actions
+* [Backup-Project|action reference#backup-project]
+
+!! {anchor:documentation}Documentation
+The aspect _documentation_ adds the documentation folder _doc_ to the project.
+!!! Folders and files
+* doc
+
+!! {anchor:programming}Programming
+The aspect _programming_ changes the output directory from _out_ to _bin_ and adds some automation scripts build and clean-up and actions to trigger these scripts.
+!!! Folders and files
+* auto
+** build.ps1
+** builddoc.ps1
+** run.ps1
+** open.ps1
+* bin
+!!! Actions
+* [Build-Project|action reference#build-project]
+* [Build-Documentation|action reference#build-documentation]
+* [Clean-Project|action reference#clean-project]
+* [Open-Project|action reference#open-project]
+* [Run-Project|action reference#run-project]
+
+!! {anchor:prototyping}Prototyping
+The aspect _prototyping_ adds support for prototype development to the project.
+!!! Folder and files
+* proto
+!!! Actions
+* [New-Prototype|action reference#new-prototype]
+
+!! {anchor:release}Release
+The aspect _release_ adds support for automated release management to the project.
+!!! Folders and files
+* release
+!!! Actions
+* [New-Release|action reference#new-release]
+
+!! {anchor:resource}Resource
+The aspect _resource_ adds the resource folder _res_ to the project.
+!!! Folders and files
+* res
+
+!! {anchor:temporary}Temporary
+The aspect _temporary_ adds the temporary folder _tmp_ to the project.
+!!! Folder and Files
+* tmp
+!!! Actions
+* [Clean-Project|action reference#clean-project]
+
+!! {anchor:website}Website
+The aspect _website_ changes the output folder from _out_ to _www_ and provides some actions for web development.
+!!! Folders and files
+* www
+!!! Actions
+* [Publish-Website|action reference#publish-website]
+

@@ -1,0 +1,7 @@
+! Project aspects
+Besides the core structure, baobab intends for every kind of project, there is a lot of additional support, that makes only sense for certain types of projects. To manage that additional support, baobab uses aspects.
+
+An aspect is a group of folders, files, and actions bundeled together in a way it can be easily added to a project. Every project can have multiple aspects. And the type of a project is in a way characterized by its aspects.
+
+A list of all aspects included in baobab can be found [here|aspect reference].
+

@@ -1,0 +1,7 @@
+! Repetitive work steps
+In the most projects, some work steps are done over and over again. To save time and prevent errors, occuring by doing these steps repetitively, baobab tries to automate them.
+
+Automated work steps supported by baobab are called actions. An action is PowerShell script, that can be triggered inside the context of a project. Actions often depend on some preconditions like existing files or folders in the project and are therefore bundeled inside of [project aspects|aspects].
+
+A list with all actions included in baobab can be found [here|action reference].
+

@@ -1,0 +1,9 @@
+! Key Concepts
+
+Baobab follows some key concepts to make a real contribution in dealing with the challanges of organizing project resources and keeping the boring repetitive tasks to a minimum.
+
+* Baobab builds up on the concept of [file-system-based entities|entity].
+* A key concept for organizing project resources is a [common structure|project structure] for all projects.
+* To manage different kinds of projects and thier specific configuration [project aspects|aspects] are used.
+* For the automation of repetitive work steps, baobab uses the concept of [actions|actions].
+

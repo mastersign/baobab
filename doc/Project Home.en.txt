@@ -1,0 +1,27 @@
+*Project Description*
+
+{project:description}
+
+!! Target requirements
+
+Baobab is meeting the following requirements.
+
+* solid semantic foundation for file organization
+* consistent but flexible project structure
+* file system based user interface (usable by any file system explorer or on shell)
+* xcopy deploy
+* high extensibility
+
+!! Prerequisites
+
+It is build for an environment with:
+* Windows XP, Vista, 7, 8
+* .NET 4.0
+* PowerShell 3
+
+!! Screenshot
+
+[image:screenshot.png]
+
+This screenshot shows a Boabab project for software development with some actions available directly in the explorer.
+

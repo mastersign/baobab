@@ -1,0 +1,43 @@
+! Project Structure
+A common structure for all projects is a very important concept and a key to effective project organization. Baobab is proposing the following core structure for every project:
+* res
+* src
+* out
+This structure has revealed itself as the most effective option to organize project resources for a wide range of different projects.
+
+!! Resources - res
+The resources folder is the place to put all files, the project gets from the outside. These files are not changed by the work on the project. They may be updated from time to time, but the cause for an update of a file inside the resource folder is never the work on the project itself, but only a change outside of the project.
+
+!! Sources - src
+The sources folder contains all files, representing the actual work in the project. The source files are changed whenever work is done for the project.
+
+!! Output - out
+Finally the project produces some kind of output. The output folder is the right place to put it. The content of the output folder usally can be deleted without any real loss. Because it can be build (in the best case automatically) from the files in the sources and resources folder.
+
+!! Additional folders
+A lots of projects can benefit from the following additional folders.
+* auto
+* backup
+* doc
+* release
+* tmp
+
+!!! Automation - auto
+If the project is automated in some way, the place to put the scripts for the automation is the automation folder. In principle every kind of scripting language can be used to automate the project. However, Baobab itself is only using Microsoft PowerShell scripts for its machinary.
+
+!!! Backup - backup
+It is allways good to have a backup of a project. And even if a subfolder of a project is not the best place for a backup of that very same project, it is a place to start. This folder basically serves as the default target for the build-in backup mechanism. But there is of course a way to point the backup to another folder. Backups in this folder can not prevent damage, caused by technical failure (like a harddrive crash), but they can prevent the damage, caused by human failure (like deleting the wrong file).
+
+A way to store a backup of the project in this folder, is to create a ZIP archive with the projects content (excluding some special folders like backup itself and tmp) with a name, containing a timestamp.
+
+!!! Documentation - doc
+In big projects or projects, that exist over a long period of time, it is good practice to document the structure of the project and typical workflows or processing steps. These documentation files should not be mixed with the actual work items in the source folder. Instead they should be stored in the documentation folder.
+
+The documentation folder is usally a good starting point for getting to know a project you are not familiar with.
+
+!!! Releases - release
+Whenever the output of a project is given to a third party, it is good to keep a copy of that delivery. The release folder is just the right place for that. To create a release, usally the content of the output folder is packed into a ZIP archive, with a name, containing a timestamp and maybe the receiver of the release.
+
+!!! Temporary - tmp
+Whenever a place for project specific temporary files is needed, maybe for an automation script or a manual work step that makes use of temporary files, the temporary folder can be used for that purpose. The content of the temporary folder is excluded from every backup, or export and is included in the clean-up mechanism of Baobab.
+
